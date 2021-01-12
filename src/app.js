@@ -1,16 +1,22 @@
-const http = require('http');
-const url = require('url');
+const express = require('express');
 const generate = require('./generator');
 
-const server = http.createServer((request, response) => {
-  const query = url.parse(request.url, true).query || {};
+const app = express();
+app.use(express.json());
 
-  const barcode = generate({...query});
+app.use((error, request, response, next) => {
+  if (error) return response.send('Unable to parse JSON');
+  return next();
+});
+
+app.post('/', (request, response) => {
+  
+  const barcode = generate(request.body);
   const buffer = Buffer.from(barcode, 'base64');
 
   response.setHeader("Content-Type", "image/jpeg");
-  response.writeHead(200);
-  response.end(buffer);
+  response.send(buffer);
 });
 
-module.exports = server;
+
+module.exports = app;
