@@ -1,0 +1,29 @@
+{
+  "name": "generator-uplatnica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crocoder-dev/generator-uplatnica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crocoder-dev/generator-uplatnica/issues"
+  },
+  "homepage": "https://github.com/crocoder-dev/generator-uplatnica#readme",
+  "dependencies": {
+    "canvas": "^2.6.1",
+    "dotenv": "^8.2.0",
+    "pdf417-generator": "^1.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
